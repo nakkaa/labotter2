@@ -1,0 +1,13 @@
+{
+    "name": "nakkaa/labotter2",
+    "authors": [
+        {
+            "name": "nakkaa",
+            "email": "tnakkaa@gmail.com"
+        }
+    ],
+    "require": {
+        "abraham/twitteroauth": "^0.9.2",
+        "mikecao/flight": "^1.3"
+    }
+}
