@@ -4,3 +4,5 @@
 
 - 開発中です。
 - ラボ(研究室)の入退室時刻を記録しツイートするWebアプリ。
+
+![](https://www.lucidchart.com/publicSegments/view/4e5d18eb-b3f6-431b-a1fd-ab0fe6fc3a35/image.png)
