@@ -25,8 +25,17 @@ function main(){
 }
 
 function labo_now(){
+    $current_date = date("Y/m/d H:i:s");
+    $tweet_message = "らぼなう!" . $current_date;
+    // Todo: labo statusをチェックする処理を入れる
+    // Twitterに投稿する処理
+    $code = post_tweet($tweet_message);
     // Todo: DBにInsertする処理を書く
-    // Todo: Twitterに投稿する処理を書く
+    // jsonとして出力
+    $array = [
+        "code" => $code
+    ];
+    output_json($array);
 }
 
 function labo_in(){
@@ -37,6 +46,23 @@ function labo_in(){
 function labo_rida(){
     // Todo: DBにInsertする処理を書く
     // Todo: Twitterに投稿する処理を書く
+}
+
+function post_tweet($tweet_message){
+    $access_token = $_SESSION['access_token'];
+    $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $access_token['oauth_token'], $access_token['oauth_token_secret']);
+    $connection->post('statuses/update', ['status' => $tweet_message]);
+    if($connection->getLastHttpCode() == 200) {
+        $code = 200;
+    } else {
+        $code = $connection->getLastHttpCode();
+    }
+    return $code;
+}
+
+function output_json($data){
+    header("Content-Type: application/json; charset=utf-8");
+    echo json_encode($data);
 }
 
 function twitter_oauth(){
