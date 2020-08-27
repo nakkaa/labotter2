@@ -1,4 +1,2 @@
-config.php
 *.DS_Store
-*.vscode
-vendor/
+*.sqlite3
